@@ -1,0 +1,13 @@
+
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "required": true,
+      "title": "ID",
+      "note": "Person's ID in macooa which has been deleted",
+      "placeholder": "Person's ID"
+    }
+  }
+}

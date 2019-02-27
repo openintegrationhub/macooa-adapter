@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "firstname": {
+      "type": "string",
+      "required": true,
+      "title": "First name",
+      "note": "Person's first name",
+      "placeholder": "Max"
+    },
+    "lastname": {
+      "type": "string",
+      "required": true,
+      "title": "Last Name",
+      "note": "Person's last name",
+      "placeholder": "Mustermann"
+    },
+    "category": {
+      "type": "string",
+      "required": true,
+      "title": "Category",
+      "note": "Person's category can either be Kunde, Lieferant, Partner, Kooperation",
+      "placeholder": "Kunde",
+        "enum": [
+          "Lieferant",
+          "Partner",
+          "Kunde",
+          "Kooperation"
+        ],
+      "default": "Kunde"
+    },
+    "industry": {
+      "type": "string",
+      "required": false,
+      "title": "Industry",
+      "note": "Person's industry",
+      "placeholder": "industry"
+    },
+    "notes": {
+      "type": "string",
+      "required": false,
+      "title": "Notes",
+      "note": "Notes according to the person",
+      "placeholder": "notes"
+    }
+  }
+}
