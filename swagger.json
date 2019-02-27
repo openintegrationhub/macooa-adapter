@@ -1,0 +1,847 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is the swagger.json for the macooa REST API. at [https://www.macooa.com/restapi/v1]",
+    "version": "1.0.0",
+    "title": "Swagger macooa",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "info@macooa.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "macooa.com",
+  "basePath": "/restapi/v1",
+  "tags": [
+    {
+      "name": "person",
+      "description": "Operations executed on persons"
+    },
+    {
+      "name": "organisation",
+      "description": "Operations executed on organisations"
+    },
+    {
+      "name": "contact",
+      "description": "Operations executed on contacts who are assigned to organisations"
+    },
+    {
+      "name": "address",
+      "description": "Operations executed on person or organisation addresses"
+    },
+    {
+      "name": "contactdata",
+      "description": "Operations executed on contactdata for persons or contacts"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/person/": {
+      "post": {
+        "tags": [
+          "person"
+        ],
+        "summary": "create a new person for given tenant",
+        "description": "create a new person for given tenant",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "person object that needs to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/person"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "person created"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "person"
+        ],
+        "summary": "update an existing person",
+        "description": "update an existing person",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "person object that needs to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/person"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "person updated"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "person"
+        ],
+        "summary": "deactivate an existing person",
+        "description": "deactivate an existing person",
+        "responses": {
+          "200": {
+            "description": "person deactivated"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "person"
+        ],
+        "summary": "Find person by Id",
+        "description": "Returns a single person",
+        "operationId": "getPersonById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "ID of person to return",
+            "required": true,
+            "type": "string",
+            "format": "alphanumeric24"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "person retrieved",
+            "schema": {
+              "$ref": "#/definitions/person"
+            }
+          }
+        }
+      }
+    },
+    "/organisation/": {
+      "post": {
+        "tags": [
+          "organisation"
+        ],
+        "summary": "create a new organisation for given tenant",
+        "description": "create a new organisation for given tenant",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "organisation object that needs to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/organisation"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "organisation created"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "organisation"
+        ],
+        "summary": "update an existing organisation",
+        "description": "update an existing organisation",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "organisation object that needs to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/organisation"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "organisation updated"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "organisation"
+        ],
+        "summary": "deactivate an existing organisation",
+        "description": "deactivate an existing organisation",
+        "responses": {
+          "200": {
+            "description": "organisation deactivated"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "organisation"
+        ],
+        "summary": "Find organisation by Id",
+        "description": "Returns a single organisation",
+        "operationId": "getOrganisationById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "ID of organisation to return",
+            "required": true,
+            "type": "string",
+            "format": "alphanumeric24"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "organisation retrieved",
+            "schema": {
+              "$ref": "#/definitions/organisation"
+            }
+          }
+        }
+      }
+    },
+    "/contact/": {
+      "post": {
+        "tags": [
+          "contact"
+        ],
+        "summary": "create a new contact assigned to an organisation",
+        "description": "create a contact assigned to an organisation",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "contact object that needs to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/contact"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "contact created"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "contact"
+        ],
+        "summary": "update an existing contact",
+        "description": "update an existing contact",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "contact object that needs to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/contact"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "contact updated"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "contact"
+        ],
+        "summary": "deactivate an existing contact",
+        "description": "deactivate an existing contact",
+        "responses": {
+          "200": {
+            "description": "contact deactivated"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "contact"
+        ],
+        "summary": "Find contact by Id",
+        "description": "Returns a single contact",
+        "operationId": "getContactById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "ID of contact to return",
+            "required": true,
+            "type": "string",
+            "format": "alphanumeric24"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "contact retrieved",
+            "schema": {
+              "$ref": "#/definitions/contact"
+            }
+          }
+        }
+      }
+    },
+    "/address/": {
+      "post": {
+        "tags": [
+          "address"
+        ],
+        "summary": "create a new address assigned to an organisation or person",
+        "description": "create a contact assigned to an organisation or person",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "address object that needs to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/address"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "address created"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "address"
+        ],
+        "summary": "update an existing address",
+        "description": "update an existing address",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "address object that needs to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/address"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "address updated"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "address"
+        ],
+        "summary": "deactivate an existing address",
+        "description": "deactivate an existing address",
+        "responses": {
+          "200": {
+            "description": "address deleted"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "address"
+        ],
+        "summary": "Find address by Id",
+        "description": "Returns a single address",
+        "operationId": "getAddressById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "ID of address to return",
+            "required": true,
+            "type": "string",
+            "format": "alphanumeric24"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "address retrieved",
+            "schema": {
+              "$ref": "#/definitions/address"
+            }
+          }
+        }
+      }
+    },
+    "/contactdata/": {
+      "post": {
+        "tags": [
+          "contactdata"
+        ],
+        "summary": "create new contactdata assigned to a contact or person",
+        "description": "create a contactdata assigned to a contact or person",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "contactdata object that needs to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/contactdata"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "contactdata created"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "contactdata"
+        ],
+        "summary": "update existing contactdata",
+        "description": "update existing contactdata",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "contactdata object that needs to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/contactdata"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "contactdata updated"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "contactdata"
+        ],
+        "summary": "deactivate existing contactdata",
+        "description": "deactivate existing contactdata",
+        "responses": {
+          "200": {
+            "description": "contactdata deleted"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "contactdata"
+        ],
+        "summary": "Find contactdata by Id",
+        "description": "Returns contactdata",
+        "operationId": "getContactdataById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "ID of contactdata to return",
+            "required": true,
+            "type": "string",
+            "format": "alphanumeric24"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "contactdata retrieved",
+            "schema": {
+              "$ref": "#/definitions/contactdata"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "person": {
+      "type": "object",
+      "properties": {
+        "personId": {
+          "type": "string",
+          "format": "alphanumeric24"
+        },
+        "firstname": {
+          "type": "string",
+          "format": "string"
+        },
+        "lastname": {
+          "type": "string",
+          "format": "string"
+        },
+        "category": {
+          "type": "string",
+          "format": "string",
+          "enum": [
+            "Lieferant",
+            "Partner",
+            "Kunde",
+            "Kooperation"
+          ],
+          "default": "Kunde"
+        },
+        "industry": {
+          "type": "string",
+          "format": "string"
+        },
+        "notes": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "organisation": {
+      "type": "object",
+      "properties": {
+        "organisationId": {
+          "type": "string",
+          "format": "alphanumeric24"
+        },
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "category": {
+          "type": "string",
+          "format": "string",
+          "enum": [
+            "Lieferant",
+            "Partner",
+            "Kunde",
+            "Kooperation"
+          ],
+          "default": "Kunde"
+        },
+        "industry": {
+          "type": "string",
+          "format": "string"
+        },
+        "notes": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "contactId": {
+          "type": "string",
+          "format": "alphanumeric24"
+        },
+        "organisationId": {
+          "type": "string",
+          "format": "alphanumeric24"
+        },
+        "firstname": {
+          "type": "string",
+          "format": "string"
+        },
+        "lastname": {
+          "type": "string",
+          "format": "string"
+        },
+        "userFunction": {
+          "type": "string",
+          "format": "string"
+        },
+        "notes": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "address": {
+      "type": "object",
+      "properties": {
+        "addressId": {
+          "type": "string",
+          "format": "alphanumeric24"
+        },
+        "organisationId": {
+          "type": "string",
+          "format": "alphanumeric24"
+        },
+        "personId": {
+          "type": "string",
+          "format": "alphanumeric24"
+        },
+        "street": {
+          "type": "string",
+          "format": "string"
+        },
+        "streetNumber": {
+          "type": "string",
+          "format": "string"
+        },
+        "zipCode": {
+          "type": "string",
+          "format": "string"
+        },
+        "city": {
+          "type": "string",
+          "format": "string"
+        },
+        "countryCode": {
+          "type": "string",
+          "format": "string2"
+        }
+      }
+    },
+    "contactdata": {
+      "type": "object",
+      "properties": {
+        "contactdataId": {
+          "type": "string",
+          "format": "alphanumeric24"
+        },
+        "contactId": {
+          "type": "string",
+          "format": "alphanumeric24"
+        },
+        "personId": {
+          "type": "string",
+          "format": "alphanumeric24"
+        },
+        "type1": {
+          "type": "string",
+          "default": "email"
+        },
+        "label1": {
+          "type": "string",
+          "description": "label",
+          "enum": [
+            "work",
+            "private",
+            "other"
+          ]
+        },
+        "value1": {
+          "type": "string",
+          "format": "string"
+        },
+        "type2": {
+          "type": "string",
+          "default": "email"
+        },
+        "label2": {
+          "type": "string",
+          "description": "label",
+          "enum": [
+            "work",
+            "private",
+            "other"
+          ]
+        },
+        "value2": {
+          "type": "string",
+          "format": "string"
+        },
+        "type3": {
+          "type": "string",
+          "default": "email"
+        },
+        "label3": {
+          "type": "string",
+          "description": "label",
+          "enum": [
+            "work",
+            "private",
+            "other"
+          ]
+        },
+        "value3": {
+          "type": "string",
+          "format": "string"
+        },
+        "type4": {
+          "type": "string",
+          "default": "phone"
+        },
+        "label4": {
+          "type": "string",
+          "description": "label",
+          "enum": [
+            "work",
+            "home",
+            "cell",
+            "other"
+          ]
+        },
+        "value4": {
+          "type": "string",
+          "format": "string"
+        },
+        "type5": {
+          "type": "string",
+          "default": "phone"
+        },
+        "label5": {
+          "type": "string",
+          "description": "label",
+          "enum": [
+            "work",
+            "home",
+            "cell",
+            "other"
+          ]
+        },
+        "value5": {
+          "type": "string",
+          "format": "string"
+        },
+        "type6": {
+          "type": "string",
+          "default": "phone"
+        },
+        "label6": {
+          "type": "string",
+          "description": "label",
+          "enum": [
+            "work",
+            "home",
+            "cell",
+            "other"
+          ]
+        },
+        "value6": {
+          "type": "string",
+          "format": "string"
+        },
+        "type7": {
+          "type": "string",
+          "default": "social media"
+        },
+        "label7": {
+          "type": "string",
+          "description": "label",
+          "enum": [
+            "LinkedIn",
+            "Xing",
+            "other"
+          ]
+        },
+        "value7": {
+          "type": "string",
+          "format": "string"
+        },
+        "type8": {
+          "type": "string",
+          "default": "social media"
+        },
+        "label8": {
+          "type": "string",
+          "description": "label",
+          "enum": [
+            "LinkedIn",
+            "Xing",
+            "other"
+          ]
+        },
+        "value8": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
