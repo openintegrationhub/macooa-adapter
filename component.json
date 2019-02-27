@@ -17,8 +17,7 @@
         "viewClass": "TextFieldView",
         "note": "Please use your macooa tenant key to access your <b>macooa Clients</b>.",
         "placeholder": "901984a8771ab13b153bf69550248100"
-      },
-
+      }
     }
   },
 
@@ -63,8 +62,8 @@
         "out": "./lib/schemas/getOrganisation.out.json"
       }
     }
-
   },
+  
   "actions": {
 
     "insertPerson": {
