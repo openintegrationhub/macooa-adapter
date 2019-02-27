@@ -6,7 +6,7 @@
       "required": true,
       "title": "ID",
       "note": "Person's ID in macooa",
-      "placeholder": "Person'S ID"
+      "placeholder": "Person's ID"
     },
     "firstname": {
       "type": "string",
