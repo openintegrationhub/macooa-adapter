@@ -1,0 +1,1 @@
+# macooa-adapter
