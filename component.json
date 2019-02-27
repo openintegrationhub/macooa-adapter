@@ -1,0 +1,79 @@
+{
+  "title": "macooa Clients",
+  "description": "macooa Clients component for the elastic.io platform",
+  "docsUrl": "https://macooa.com/restapi/v1",
+  "credentials": {
+    "fields": {
+      "token": {
+        "label": "API token key for data sharing",
+        "required": true,
+        "viewClass": "TextFieldWithNoteView",
+        "note": "Please use <b>macooa Clients</b> API token key.",
+        "placeholder": "40591074f52aa4a76eb0a20c037100de"
+      },
+      "tenant": {
+        "label": "macooa tenant key to your identify your macooa client data",
+        "required": true,
+        "viewClass": "TextFieldView",
+        "note": "Please use your macooa tenant key to access your <b>macooa Clients</b>.",
+        "placeholder": "901984a8771ab13b153bf69550248100"
+      },
+
+    }
+  },
+
+  "triggers": {
+
+    "getPersons": {
+      "title": "Fetch all persons from macooa Clients",
+      "description": "Fetch all persons from macooa Clients",
+      "type": "load",
+      "main": "./lib/triggers/getPersonsPolling.js",
+      "metadata": {
+        "out": "./lib/schemas/getPersons.out.json"
+      }
+    },
+
+    "getPerson": {
+      "title": "Fetch single person from macooa Clients",
+      "description": "Fetch single person from macooa Clients",
+      "type": "load",
+      "main": "./lib/triggers/getPersonsPolling.js",
+      "metadata": {
+        "out": "./lib/schemas/getPerson.out.json"
+      }
+    }
+  },
+  "actions": {
+
+    "insertPerson": {
+      "title": "Insert Person",
+      "description": "inserts a new person into macooa Clients.",
+      "main": "./lib/actions/insertPerson.js",
+      "metadata": {
+        "in": "./lib/schemas/insertPerson.in.json",
+        "out": "./lib/schemas/insertupdatePerson.out.json"
+      }
+    },
+
+    "updatePerson": {
+      "title": "Update Person",
+      "description": "Update an existing person in macooa Clients.",
+      "main": "./lib/actions/updatePerson.js",
+      "metadata": {
+        "in": "./lib/schemas/updatePerson.in.json",
+        "out": "./lib/schemas/insertupdatePerson.out.json"
+      }
+    },
+
+    "deletePerson": {
+      "title": "Delete person",
+      "description": "Given an id, deactivate (soft delete) the corresponding person.",
+      "main": "./lib/actions/deletePerson.js",
+      "metadata": {
+        "in": "./lib/schemas/deletePerson.in.json",
+        "out": "./lib/schemas/deletePerson.out.json"
+      }
+    }
+  }
+}
