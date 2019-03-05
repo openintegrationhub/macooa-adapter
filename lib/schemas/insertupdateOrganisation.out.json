@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "required": true,
+      "title": "ID",
+      "note": "Organisation ID in macooa",
+      "placeholder": "Organisation ID"
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "title": "Name of Organisation",
+      "note": "Name of Organisation",
+      "placeholder": "Organisation"
+    },
+    "category": {
+      "type": "string",
+      "required": true,
+      "title": "Category",
+      "note": "Organisation category can either be Kunde, Lieferant, Partner, Kooperation",
+      "placeholder": "Kunde",
+        "enum": [
+          "Lieferant",
+          "Partner",
+          "Kunde",
+          "Kooperation"
+        ],
+      "default": "Kunde"
+    },
+    "industry": {
+      "type": "string",
+      "required": false,
+      "title": "Industry",
+      "note": "Organisation industry",
+      "placeholder": "industry"
+    },
+    "notes": {
+      "type": "string",
+      "required": false,
+      "title": "Notes",
+      "note": "Notes according to the Organisation",
+      "placeholder": "notes"
+    }
+  }
+}

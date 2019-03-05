@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "required": true,
+      "title": "ID",
+      "note": "Organisation ID in macooa which you want to delete",
+      "placeholder": "Organisation ID"
+    }
+  }
+}
