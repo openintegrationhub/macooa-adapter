@@ -87,7 +87,7 @@
     },
 
     "deletePerson": {
-      "title": "Delete person",
+      "title": "Delete Person",
       "description": "Given an id, deactivate (soft delete) the corresponding person.",
       "main": "./lib/actions/deletePerson.js",
       "metadata": {
