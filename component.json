@@ -27,7 +27,7 @@
       "title": "Fetch all persons from macooa",
       "description": "Fetch all persons from macooa",
       "type": "load",
-      "main": "./lib/triggers/getPersonsPolling.js",
+      "main": "./lib/triggers/getPersons.php",
       "metadata": {
         "out": "./lib/schemas/getPersons.out.json"
       }
@@ -37,7 +37,7 @@
       "title": "Fetch single person from macooa",
       "description": "Fetch single person from macooa",
       "type": "load",
-      "main": "./lib/triggers/getPersonsPolling.js",
+      "main": "./lib/triggers/getPerson.php",
       "metadata": {
         "out": "./lib/schemas/getPerson.out.json"
       }
@@ -47,7 +47,7 @@
       "title": "Fetch all organisations from macooa",
       "description": "Fetch all organisations from macooa",
       "type": "load",
-      "main": "./lib/triggers/getOrganisationsPolling.js",
+      "main": "./lib/triggers/getOrganisations.php",
       "metadata": {
         "out": "./lib/schemas/getOrganisations.out.json"
       }
@@ -57,7 +57,7 @@
       "title": "Fetch single organisation from macooa",
       "description": "Fetch single organisation from macooa",
       "type": "load",
-      "main": "./lib/triggers/getOrganisationPolling.js",
+      "main": "./lib/triggers/getOrganisation.php",
       "metadata": {
         "out": "./lib/schemas/getOrganisation.out.json"
       }
@@ -69,7 +69,7 @@
     "insertPerson": {
       "title": "Insert Person",
       "description": "inserts a new person into macooa.",
-      "main": "./lib/actions/insertPerson.js",
+      "main": "./lib/actions/insertPerson.php",
       "metadata": {
         "in": "./lib/schemas/insertPerson.in.json",
         "out": "./lib/schemas/insertupdatePerson.out.json"
@@ -79,7 +79,7 @@
     "updatePerson": {
       "title": "Update Person",
       "description": "Update an existing person in macooa.",
-      "main": "./lib/actions/updatePerson.js",
+      "main": "./lib/actions/updatePerson.php",
       "metadata": {
         "in": "./lib/schemas/updatePerson.in.json",
         "out": "./lib/schemas/insertupdatePerson.out.json"
@@ -89,7 +89,7 @@
     "deletePerson": {
       "title": "Delete Person",
       "description": "Given an id, deactivate (soft delete) the corresponding person.",
-      "main": "./lib/actions/deletePerson.js",
+      "main": "./lib/actions/deletePerson.php",
       "metadata": {
         "in": "./lib/schemas/deletePerson.in.json",
         "out": "./lib/schemas/deletePerson.out.json"
@@ -99,7 +99,7 @@
     "insertOrganisation": {
       "title": "Insert Organisation",
       "description": "inserts a new organisation into macooa.",
-      "main": "./lib/actions/insertOrganisation.js",
+      "main": "./lib/actions/insertOrganisation.php",
       "metadata": {
         "in": "./lib/schemas/insertOrganisation.in.json",
         "out": "./lib/schemas/insertupdateOrganisation.out.json"
@@ -109,7 +109,7 @@
     "updateOrganisation": {
       "title": "Update Organisation",
       "description": "Update an existing organisation in macooa.",
-      "main": "./lib/actions/updateOrganisation.js",
+      "main": "./lib/actions/updateOrganisation.php",
       "metadata": {
         "in": "./lib/schemas/updateOrganisation.in.json",
         "out": "./lib/schemas/insertupdateOrganisation.out.json"
@@ -119,7 +119,7 @@
     "deleteOrganisation": {
       "title": "Delete Organisation",
       "description": "Given an id, deactivate (soft delete) the corresponding organisation.",
-      "main": "./lib/actions/deleteOrganisation.js",
+      "main": "./lib/actions/deleteOrganisation.php",
       "metadata": {
         "in": "./lib/schemas/deleteOrganisation.in.json",
         "out": "./lib/schemas/deleteOrganisation.out.json"
