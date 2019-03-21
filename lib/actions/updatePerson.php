@@ -55,6 +55,7 @@ else{
 
     $headers = array(
         'Content-Type: application/json',
+        'Content-Length: '.strlen($_payload).'',        
         'token: '.$_token.'',
         'tenant: '.$_tenant
     );
