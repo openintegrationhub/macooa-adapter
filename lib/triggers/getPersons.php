@@ -17,23 +17,17 @@ limitations under the License.
 
 */
 
-require_once(__DIR__.'/includeAllUtils.php');
+require_once('../includeAllUtils.php');
 
-$_token = $_token = $_resp = "";
+$_token = $_tenant = $_resp = "";
 
-IF(isset($_GET['token'])){
+$currentHeaders = getallheaders();
 
-  $_token = checkInboundTokenAndTenant($_GET['token']);
+$_token = checkInboundTokenAndTenant($currentHeaders['token']);
 
-}
+$_tenant = checkInboundTokenAndTenant($currentHeaders['tenant']);
 
-IF(isset($_GET['tenant'])){
-
-  $_tenant = checkInboundTokenAndTenant($_GET['tenant']);
-
-}
-
-if(!function_exists('curl_init')){
+IF(!function_exists('curl_init')){
 
 	die('Sorry cURL is not installed!');
 
